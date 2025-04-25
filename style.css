@@ -1,0 +1,135 @@
+/* Custom Styles for TechElectronics Store */
+
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+a {
+    color: #0d6efd;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0a58ca;
+    text-decoration: underline;
+}
+
+.text-primary {
+    color: #0d6efd !important;
+}
+
+.bg-primary {
+    background-color: #0d6efd !important;
+}
+
+/* Product cards */
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.product-img {
+    max-height: 160px;
+    width: auto;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+/* Home page styles */
+.jumbotron {
+    background-image: linear-gradient(120deg, #e0f7fa 0%, #bbdefb 100%);
+    border-radius: 10px;
+}
+
+/* Navigation */
+.navbar-brand i {
+    margin-right: 5px;
+}
+
+/* Category icons */
+.category-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: #0d6efd;
+}
+
+/* Button styles */
+.btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.btn-primary:hover {
+    background-color: #0a58ca;
+    border-color: #0a58ca;
+}
+
+.btn-outline-primary {
+    color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.btn-outline-primary:hover {
+    background-color: #0d6efd;
+    color: white;
+}
+
+/* Footer styles */
+footer {
+    margin-top: 60px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Form styles */
+.form-control:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Product details page */
+.breadcrumb-item + .breadcrumb-item::before {
+    content: ">";
+}
+
+/* Cart and checkout */
+.table th {
+    font-weight: 600;
+}
+
+/* Order confirmation */
+.fa-check-circle {
+    color: #198754;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+    .jumbotron {
+        padding: 2rem 1rem;
+    }
+
+    .navbar .dropdown-menu {
+        border: none;
+        padding-left: 1.5rem;
+    }
+
+    .card-footer {
+        flex-direction: column;
+        align-items: start !important;
+    }
+
+    .card-footer .btn {
+        margin-top: 10px;
+        width: 100%;
+    }
+}

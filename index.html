@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}TechElectronics - Home{% endblock %}
+
+{% block content %}
+<div class="jumbotron bg-light p-5 rounded-3 mb-4">
+    <div class="container">
+        <h1 class="display-4">Welcome to TechElectronics</h1>
+        <p class="lead">The best place to find the latest electronic devices at competitive prices.</p>
+        <hr class="my-4">
+        <p>Browse our catalog to discover amazing deals on smartphones, laptops, TVs, and more!</p>
+        <a class="btn btn-primary btn-lg" href="{% url 'product_list' %}" role="button">Shop Now</a>
+    </div>
+</div>
+
+<section class="mb-5">
+    <h2 class="mb-4">Featured Categories</h2>
+    <div class="row">
+        {% for category in featured_categories %}
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-4x
+                            {% if category.name == 'Smartphones' %}fa-mobile-alt
+                            {% elif category.name == 'Laptops' %}fa-laptop
+                            {% elif category.name == 'TVs' %}fa-tv
+                            {% elif category.name == 'Cameras' %}fa-camera
+                            {% elif category.name == 'Audio' %}fa-headphones
+                            {% elif category.name == 'Wearables' %}fa-watch
+                            {% else %}fa-microchip{% endif %}
+                            mb-3 text-primary"></i>
+                        <h5 class="card-title">{{ category.name }}</h5>
+                        <p class="card-text">{{ category.description|truncatechars:100 }}</p>
+                        <a href="{% url 'product_list_by_category' category.slug %}" class="btn btn-outline-primary">
+                            View Products
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <div class="col-12">
+                <div class="alert alert-info">No categories available yet.</div>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section>
+    <h2 class="mb-4">Latest Products</h2>
+    <div class="row">
+        {% for product in latest_products %}
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    {% if product.image_url %}
+                        <div class="text-center pt-3">
+                            <img src="{{ product.image_url }}" alt="{{ product.name }}" class="img-fluid product-img">
+                        </div>
+                    {% else %}
+                        <div class="text-center pt-3">
+                            <i class="fas fa-5x fa-box text-secondary"></i>
+                        </div>
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text text-muted">{{ product.description|truncatechars:100 }}</p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between align-items-center">
+                        <span class="h5 mb-0">${{ product.price }}</span>
+                        <a href="{% url 'product_detail' product.id product.slug %}" class="btn btn-sm btn-primary">
+                            View Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <div class="col-12">
+                <div class="alert alert-info">No products available yet.</div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="{% url 'product_list' %}" class="btn btn-outline-primary">View All Products</a>
+    </div>
+</section>
+{% endblock %}
