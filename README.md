@@ -1,0 +1,1 @@
+Мой проект - интернет-магазин электроники. Выполнен с помощью PyCharm и MS PowerShell. Использованы технологии Django и SQLite. Запускается с помощью команд - pip install django, python manage.py makemigrations, python manage.py migrate и python manage.py runserver.
